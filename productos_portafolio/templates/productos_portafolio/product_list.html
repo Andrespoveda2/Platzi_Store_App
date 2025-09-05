@@ -1,47 +1,45 @@
-{% extends 'productos_portafolio/base.html' %} {% block content %}
+{% extends 'productos_portafolio/base.html' %}
+{% block content %}
 
 <div class="row">
+  <!-- Categorías -->
   <aside class="col-md-3 mb-4">
-    <h5>Categorías</h5>
-    <ul class="list-group">
-      {% for cat in categorias %}
-      <a
-        href="?category={{ cat }}"
-        class="list-group-item list-group-item-action {% if selected == cat %}active{% endif %}"
-      >
-        {{ cat }}
-      </a>
-      {% endfor %}
-    </ul>
+    <div class="categories">
+      <h3>Categorías</h3>
+      <ul>
+        {% for cat in categorias %}
+        <li class="{% if selected == cat %}active{% endif %}">
+          <a href="?category={{ cat }}">{{ cat }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
   </aside>
 
+  <!-- Productos -->
   <section class="col-md-9">
     <h1 class="mb-4">Productos</h1>
-    <a
-      href="{% url 'productos_portafolio:product_create' %}"
-      class="btn btn-primary mb-4"
-    >
+    <a href="{% url 'productos_portafolio:product_create' %}" class="btn btn-primary mb-4">
       Crear Nuevo Producto
     </a>
+
     <div class="row g-4">
       {% for producto in productos %}
       <div class="col-md-4">
-        <div class="card h-100 text-dark">
-          <img
-            src="{{ producto.images.0 }}"
-            class="card-img-top"
-            alt="{{ producto.title }}"
-          />
+        <div class="card h-100">
+          {% if producto.images %}
+          <img src="{{ producto.images.0 }}" class="card-img-top" alt="{{ producto.title }}" />
+          {% endif %}
           <div class="card-body">
             <h5 class="card-title">{{ producto.title }}</h5>
             <p class="card-text">
-              Precio: ${{ producto.price }}<br />
+              Precio: <span class="price">${{ producto.price }}</span><br />
               Categoría: {{ producto.category.name }}
             </p>
-            <div class="d-flex justify-content-between mt-3">
-              <a href="{% url 'productos_portafolio:product_edit' product_id=producto.id %}" class="btn btn-warning btn-sm">Editar</a>
-              
-              <a href="{% url 'productos_portafolio:product_delete' product_id=producto.id %}" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');">Eliminar</a>
+
+            <div class="d-flex mt-3">
+              <a href="{% url 'productos_portafolio:product_edit' product_id=producto.id %}" class="btn-action btn-edit me-2">Editar</a>
+              <a href="{% url 'productos_portafolio:product_delete' product_id=producto.id %}" class="btn-action btn-delete" onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');">Eliminar</a>
             </div>
           </div>
         </div>

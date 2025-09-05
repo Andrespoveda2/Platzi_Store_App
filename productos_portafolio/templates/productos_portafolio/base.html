@@ -1,10 +1,10 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>SENA APP</title>
+    <title>Fake Store Platzi</title>
     <link rel="icon" href="{% static 'img/icon.png' %}" type="image/x-icon" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
@@ -17,18 +17,17 @@
 
     <style>
       :root {
-        --verde-pastel: #c8e6c9;
-        --verde-oscuro: #2e7d32;
-        --naranja-pastel: #ffe0b2;
-        --naranja-oscuro: #ef6c00;
-        --gris-suave: #eceff1;
-        --gris-oscuro: #455a64;
+        --azul-claro: #2196f3;
+        --azul-oscuro: #0d47a1;
+        --negro: #121212;
+        --gris: #1e1e1e;
         --blanco: #ffffff;
+        --gris-texto: #b0bec5;
       }
 
       body {
-        background: linear-gradient(to right, #f1f8e9, #e8f5e9);
-        color: var(--gris-oscuro);
+        background: linear-gradient(to right, #0d1117, #161b22);
+        color: #e0e6ed;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         min-height: 100vh;
         display: flex;
@@ -37,133 +36,109 @@
 
       /* Navbar */
       .navbar {
-        background-color: var(--verde-pastel);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        border-bottom: 2px solid var(--naranja-pastel);
-        transition: background-color 0.3s ease;
+        background-color: var(--gris);
+        border-bottom: 2px solid var(--azul-claro);
       }
 
       .navbar-brand {
-        color: var(--naranja-oscuro) !important;
+        color: var(--azul-claro) !important;
         font-weight: 700;
-        font-size: 1.8rem;
-        letter-spacing: 0.5px;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
-      }
-
-      .nav-link {
-        color: var(--verde-oscuro) !important;
-        font-weight: 500;
-        margin-right: 1rem;
-        transition: color 0.3s ease, background-color 0.3s ease;
-        border-radius: 5px;
-        padding: 0.4rem 0.75rem;
-      }
-
-      .nav-link:hover {
-        color: var(--naranja-oscuro) !important;
-        background-color: rgba(255, 224, 178, 0.4);
-      }
-      <style > input.form-control,
-      textarea.form-control,
-      select.form-select {
-        border-radius: 0.75rem; /* bordes más redondeados */
-        border: 2px solid #ccc;
-      }
-
-      input.form-control:focus,
-      textarea.form-control:focus,
-      select.form-select:focus {
-        border-color: #28a745; /* verde */
-        box-shadow: 0 0 6px rgba(40, 167, 69, 0.5);
-      }
-
-      /* Logo */
-      .navbar img {
-        margin-right: 0.5rem;
-        border-radius: 50%;
-        border: 2px solid var(--verde-oscuro);
-        padding: 2px;
-      }
-      textarea.form-control {
-        resize: vertical; /* permite solo redimensionar en altura */
-        background-color: #f9f9f9; /* gris claro */
-        border: 2px solid #ccc;
-        transition: all 0.3s ease-in-out;
-      }
-
-      textarea.form-control:focus {
-        border-color: #ff9933; /* naranja */
-        box-shadow: 0 0 8px rgba(255, 153, 51, 0.4);
-        background-color: #fff;
-      }
-      .form-control,
-      .form-select {
-        border-radius: 10px;
-        padding: 10px;
-        border: 1px solid #ddd;
-        transition: all 0.3s ease;
-      }
-      /* Input búsqueda */
-      .form-control {
-        border-radius: 12px;
-        transition: all 0.3s ease-in-out;
-      }
-
-      .form-control:focus {
-        border-color: var(--verde-oscuro);
-        box-shadow: 0 0 0 0.25rem rgba(46, 125, 50, 0.2);
-      }
-
-      /* Botón búsqueda */
-      .btn-outline-secondary {
-        border-color: var(--verde-oscuro);
-        color: var(--verde-oscuro);
-        border-radius: 10px;
-        transition: all 0.3s ease;
-      }
-
-      .btn-outline-secondary:hover {
-        background-color: var(--verde-oscuro);
-        color: var(--blanco);
+        font-size: 1.5rem;
+        letter-spacing: 1px;
       }
 
       /* Main */
       main.container {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
+        background-color: #0d1117;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
         flex-grow: 1;
-        background-color: var(--blanco);
-        border-radius: 20px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-        margin-top: 2rem;
-        animation: fadeIn 0.6s ease-out;
       }
 
-      h1,
-      h2 {
-        color: var(--verde-oscuro);
+      h1, h2 {
+        color: var(--azul-claro);
         font-weight: 700;
         margin-bottom: 1.5rem;
         position: relative;
       }
 
-      h1::after,
-      h2::after {
+      h1::after, h2::after {
         content: "";
         display: block;
         width: 60px;
-        height: 4px;
-        background: var(--naranja-oscuro);
+        height: 3px;
+        background: var(--azul-oscuro);
         border-radius: 4px;
-        margin-top: 10px;
+        margin-top: 8px;
       }
 
-      /* Estilos para tablas */
+      /* Productos */
+      .card {
+        background-color: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 12px;
+        padding: 1rem;
+        color: #e6edf3 !important;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .card h5, .card h6, .card p {
+        color: #e6edf3 !important;
+      }
+
+      .card .price {
+        color: #58a6ff !important;
+        font-weight: bold;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(56, 139, 253, 0.4);
+        background-color: #1c2128;
+      }
+
+      /* Categorías */
+      .categories {
+        background-color: #161b22 !important;
+        border: 1px solid #30363d;
+        border-radius: 12px;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        color: #e6edf3 !important;
+      }
+
+      .categories h3 {
+        color: #58a6ff !important;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #30363d;
+        padding-bottom: 0.5rem;
+      }
+
+      .categories ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+      }
+
+      .categories li {
+        padding: 0.5rem 0;
+        cursor: pointer;
+        color: #e6edf3 !important;
+        transition: color 0.2s ease, background-color 0.2s ease;
+        border-radius: 6px;
+      }
+
+      .categories li:hover {
+        color: #58a6ff !important;
+        background-color: rgba(33, 150, 243, 0.1);
+      }
+
+      /* Tablas */
       .table-container {
-        background-color: var(--blanco);
-        border-radius: 15px;
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        background-color: var(--gris);
+        border-radius: 10px;
         overflow: hidden;
         margin-top: 2rem;
       }
@@ -171,167 +146,187 @@
       .table {
         margin-bottom: 0;
         font-size: 0.95rem;
+        color: var(--blanco);
       }
 
       .table thead th {
-        background: linear-gradient(135deg, var(--verde-oscuro), #388e3c);
+        background: var(--azul-oscuro);
         color: var(--blanco);
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        padding: 1.2rem 1rem;
+        padding: 1rem;
         border: none;
-        font-size: 0.85rem;
-        position: sticky;
-        top: 0;
-        z-index: 10;
       }
 
       .table tbody tr {
         transition: all 0.3s ease;
-        border-bottom: 1px solid #e9ecef;
+        border-bottom: 1px solid #333;
       }
 
       .table tbody tr:hover {
-        background-color: var(--verde-pastel);
-        transform: translateY(-1px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-      }
-
-      .table tbody tr:nth-child(even) {
-        background-color: #f8f9fa;
-      }
-
-      .table tbody tr:nth-child(even):hover {
-        background-color: var(--verde-pastel);
+        background-color: rgba(33, 150, 243, 0.1);
       }
 
       .table td {
         padding: 1rem;
         vertical-align: middle;
         border: none;
-        color: var(--gris-oscuro);
-        font-weight: 500;
-      }
-
-      /* Responsive para tabla */
-      @media (max-width: 992px) {
-        .table-container {
-          overflow-x: auto;
-        }
-
-        .table {
-          min-width: 800px;
-        }
-
-        .table thead th {
-          padding: 1rem 0.75rem;
-          font-size: 0.8rem;
-        }
-
-        .table td {
-          padding: 0.8rem 0.75rem;
-          font-size: 0.9rem;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .table thead th {
-          padding: 0.8rem 0.5rem;
-          font-size: 0.75rem;
-        }
-
-        .table td {
-          padding: 0.7rem 0.5rem;
-          font-size: 0.85rem;
-        }
-      }
-
-      /* Badges para programas */
-      .badge {
-        font-size: 0.8rem;
-        padding: 0.5rem 0.8rem;
-        border-radius: 20px;
-        font-weight: 500;
-      }
-
-      .badge-programa {
-        background-color: var(--naranja-pastel);
-        color: var(--naranja-oscuro);
-        border: 1px solid var(--naranja-oscuro);
+        color: var(--gris-texto);
       }
 
       /* Footer */
       footer {
-        background: linear-gradient(to right, var(--verde-oscuro), #33691e);
-        color: var(--blanco);
+        background: var(--gris);
+        color: var(--gris-texto);
         text-align: center;
         padding: 1.2rem 0;
-        font-size: 0.95rem;
-        letter-spacing: 0.5px;
-        box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.1);
+        font-size: 0.9rem;
+        border-top: 2px solid var(--azul-claro);
       }
 
-      /* Animación fade-in */
+      /* Animación */
       @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-        to {
-          opacity: 1;
-          transform: none;
-        }
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: none; }
       }
-    </style>
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        main.container { padding: 1rem; }
+        .card { margin-bottom: 1rem; }
+        .categories { margin-bottom: 1rem; }
+      }
+
+      /* Tarjetas de productos */
+      .card {
+        background-color: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 12px;
+        padding: 1rem;
+        color: #e6edf3;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .card h5, .card p, .card .price {
+        color: #e6edf3;
+      }
+
+      .card .price {
+        color: #58a6ff;
+        font-weight: bold;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(56, 139, 253, 0.4);
+        background-color: #1c2128;
+      }
+
+      /* Botones Editar / Eliminar */
+      .btn-action {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+        border-radius: 8px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-edit {
+        background-color: rgba(33, 150, 243, 0.2);
+        border-color: #2196f3;
+        color: #e6edf3;
+      }
+
+      .btn-edit:hover {
+        background-color: #2196f3;
+        color: #fff;
+      }
+
+      .btn-delete {
+        background-color: rgba(244, 67, 54, 0.2);
+        border-color: #f44336;
+        color: #e6edf3;
+      }
+
+      .btn-delete:hover {
+        background-color: #f44336;
+        color: #fff;
+      }
+
+      /* Categorías */
+      .categories {
+        background-color: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 12px;
+        padding: 1rem;
+        color: #e6edf3;
+      }
+
+      .categories h3 {
+        color: #58a6ff;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #30363d;
+        padding-bottom: 0.5rem;
+      }
+
+      .categories ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+      }
+
+      .categories li {
+        padding: 0.5rem 0;
+        cursor: pointer;
+        transition: color 0.2s ease, background-color 0.2s ease;
+        border-radius: 6px;
+      }
+
+      .categories li:hover {
+        color: #58a6ff;
+        background-color: rgba(33, 150, 243, 0.1);
+      }
+
+      .categories a {
+        color: inherit;
+        text-decoration: none;
+        display: block;
+        width: 100%;
+      }
+
+      .categories a:hover {
+        text-decoration: none;
+      }
+
+      .categories .active a {
+        font-weight: bold;
+        color: #2196f3;
+      }
+
+    </style> 
   </head>
   <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg">
       <div class="container">
-        <img
-          src="{% static 'assets/images/icon.png' %}"
-          alt="Logo"
-          style="width: 30px; height: 30px"
-        />
-        <a class="navbar-brand" href="#">SENA</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarContent"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarContent">
-          <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-              <a>Inicio</a>
-            </li>
-          </ul>
-
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Buscar..."
-              aria-label="Buscar"
-            />
-            <button class="btn btn-outline-secondary" type="submit">
-              Buscar
-            </button>
-          </form>
-        </div>
+        <a class="navbar-brand" href="#">FAKE STORE PLATZI</a>
       </div>
     </nav>
 
     <!-- CONTENIDO -->
-    <main class="container">{% block content %} {% endblock %}</main>
+    <main class="container">
+      {% block content %} {% endblock %}
+    </main>
 
     <!-- FOOTER -->
     <footer>
-      &copy; 2025 Miguel Angel Ricaurte. Todos los derechos reservados.
+      &copy; 2025 Fake Store Platzi. Todos los derechos reservados.
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
